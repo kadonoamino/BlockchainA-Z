@@ -1,0 +1,19 @@
+version: '3'
+
+services: 
+    web:
+        build: .
+        ports:
+            - "5000:5000"
+        volumes: 
+            - './Module1-Create_a_Blockchain/:/work/Module1-Create_a_Blockchain'
+        tty: true
+        stdin_open: true
+        command: bash -c "cd work/Module1-Create_a_Blockchain && 
+                 python blockchain.py"
+    
+    # postman:
+    #     image: postman/newman
+    #     command: https://www.getpostman.com/collections/8a0c9bc08f062d12dcda
+    #     tty: true
+    #     stdin_open: true
